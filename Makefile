@@ -8,7 +8,7 @@ RM = rm -f
 
 NAME = push_swap
 
-SRC = 	./srcs/utils_outside_of_project.c ./srcs/main.c ./srcs/main_utils.c\
+SRC = 	 ./srcs/main.c ./srcs/main_utils.c\
 		 ./srcs/parse_info.c ./srcs/sort_algorithm.c ./srcs/sort_algorithm_utils.c\
 		 ./srcs/print_operation_list.c ./srcs/find_small_values_and_push_into_b.c\
 		 ./srcs/sort_stack_b.c\

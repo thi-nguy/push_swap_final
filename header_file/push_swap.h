@@ -98,16 +98,6 @@ int     is_big_enough(t_stack *stack, int num, int size);
 int     get_max_of_search_range(t_push_swap *info);
 int     is_stack_decreasing(t_stack *stack);
 void    final_push(t_push_swap *info);
-
-// ! utils_outside_of_project.c
 t_stack  *delete_first_node(t_stack *head);
-void    print_list(t_stack *head);
-
-
-
-// # include "constant.h"
-// # include "struct.h"
-// # include "global.h"
-
 
 #endif

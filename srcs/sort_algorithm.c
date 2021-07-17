@@ -97,7 +97,6 @@ t_push_swap   *execute_command(t_push_swap *info, t_command command)
         info->size_a--;
         info->size_b++;
     }
-//! co van de o day,khong luu cac command ma chi luu cac command gan nhat
     info->operation_list = add_command_to_end_of_operation_list(&info->operation_list, command);
     return (info);
 }

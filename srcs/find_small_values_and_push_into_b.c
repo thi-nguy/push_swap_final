@@ -17,7 +17,6 @@ void    find_small_values_and_push_into_b(t_push_swap *info)
         move_up_smaller_number(info, min_position);
 }
 
-//! is it a good algorithm?
 void    move_up_smaller_number(t_push_swap *info, int position)
 {
     int b1;

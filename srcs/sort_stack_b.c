@@ -57,7 +57,7 @@ void    final_push(t_push_swap *info)
         a1 = tmp->data;
         count++;
     }
-    execute_command(info, PA); //cho nay co the them dieu kien xem phan tu ben A co lon hon ko
+    execute_command(info, PA);
     while (count > 0)
     {
         execute_command(info, RRA);
@@ -65,7 +65,7 @@ void    final_push(t_push_swap *info)
     }
 }
 
-void    move_up_bigger_number(t_push_swap *info, int position) //this is not so good algorithm
+void    move_up_bigger_number(t_push_swap *info, int position)
 {
     if (position == 1)
         execute_command(info, SB);
@@ -111,7 +111,7 @@ int     get_max_of_search_range(t_push_swap *info)
     current = info->b_head;
     max = current->data;
     i = 0;
-    while (current->next != NULL && i < info->search_range - 1) //&& current->next != NULL)
+    while (current->next != NULL && i < info->search_range - 1)
     {
         if (max < current->next->data)
             max = current->next->data;
@@ -120,7 +120,7 @@ int     get_max_of_search_range(t_push_swap *info)
     }
     current = info->b_end;
     i = 0;
-    while (current->prev != NULL && i < info->search_range - 1)// && current->next != NULL)
+    while (current->prev != NULL && i < info->search_range - 1)
     {
         if (max < current->data)
             max = current->data;
@@ -147,9 +147,7 @@ int     is_stack_decreasing(t_stack *stack)
         else
             return (0);
     }
-    //printf("Stack is increasing.\n");
     return (1);
-
 }
 
 

@@ -19,10 +19,7 @@ int     main(int ac, char **av)
         ft_bzero(&info, sizeof(info));
         parse_info(&info, input_array, ac - 1);
         sort_algorithm(&info);
-        //status = is_stack_increasing(info.a_head);
-        //printf("Stack is increasing? = %d.\n", status);
         print_operation_list(info.operation_list);
-        //print_list(info.a_head);
     }
     return (0);
 }
