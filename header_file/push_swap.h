@@ -85,11 +85,9 @@ void execute_rotate(t_push_swap *info, t_command command);
 void execute_reverse_rotate(t_push_swap *info, t_command command);
 
 
-
 // ! sort_algorithm_utils.c
 int			is_stack_increasing(t_stack *stack);
-t_node		*add_command_to_end_of_operation_list(t_node **list,
-				t_command command);
+t_node		*add_command_to_list(t_node **list, t_command command);
 void		swap(t_stack **stack);
 void		rotate(t_stack **head, t_stack **end);
 void		reverse_rotate(t_stack **head, t_stack **end);

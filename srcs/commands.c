@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:03:43 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/19 11:12:56 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/19 11:14:37 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	reverse_rotate(t_stack **head, t_stack **end)
 	tmp_head->data = num;
 }
 
-t_node	*add_command_to_end_of_operation_list(t_node **list, t_command command)
+t_node	*add_command_to_list(t_node **list, t_command command)
 {
 	t_node	*new;
 	t_node	*current;
