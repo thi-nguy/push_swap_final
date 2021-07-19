@@ -9,7 +9,7 @@ RM = rm -f
 NAME = push_swap
 
 SRC = 	./srcs/main.c ./srcs/main_utils.c\
-		./srcs/parse_info.c\
+		./srcs/parse_info.c ./srcs/move_small_number_up.c\
 		./srcs/sort_algorithm.c ./srcs/sort_algorithm_utils.c\
 		./srcs/sort_stack_a.c ./srcs/sort_stack_a_utils.c\
 		./srcs/sort_stack_b.c ./srcs/sort_stack_b_utils.c\
