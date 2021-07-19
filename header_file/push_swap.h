@@ -80,6 +80,11 @@ int			sort_stack_a(t_push_swap *info);
 void		sort_algorithm(t_push_swap *info);
 void		sort_three_numbers(t_push_swap *info);
 t_push_swap	*execute_command(t_push_swap *info, t_command command);
+void execute_swap(t_push_swap *info, t_command command);
+void execute_rotate(t_push_swap *info, t_command command);
+void execute_reverse_rotate(t_push_swap *info, t_command command);
+
+
 
 // ! sort_algorithm_utils.c
 int			is_stack_increasing(t_stack *stack);

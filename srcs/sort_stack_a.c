@@ -12,6 +12,37 @@
 
 #include "push_swap.h"
 
+void    sort_three_numbers(t_push_swap *info)
+{
+    int num1;
+    int num2;
+    int num3;
+    t_stack *tmp;
+
+    tmp = info->a_head;
+    num1 = info->a_head->data;
+    num2 = info->a_head->next->data;
+    num3 = info->a_end->data;
+    if (is_stack_increasing(info->a_head) == 1)
+        return ;
+    if (num1 > num2 && num3 > num2 && num1 < num3)
+        execute_command(info, SA);
+    else if (num1 > num2 && num3 > num2 && num1 > num3)
+        execute_command(info, RA);
+    else if (num1 < num2 && num3 < num2 && num1 > num3)
+        execute_command(info, RRA);
+    else if (num1 < num2 && num3 < num2 && num1 < num3)
+    {
+        execute_command(info, RRA);
+        execute_command(info, SA);
+    }
+    else if (num1 > num2 && num2 > num3)
+    {
+        execute_command(info, RA);
+        execute_command(info, SA);
+    }
+}
+
 void    find_small_values_and_push_into_b(t_push_swap *info)
 {
     int min_of_a_range;
@@ -71,73 +102,4 @@ void    move_up_smaller_number(t_push_swap *info, int position)
         else
             execute_command(info, RRA);
     }
-}
-
-int     find_position(t_stack *stack, int min, int size)
-{
-    int position;
-
-    position = 0;
-    while (stack)
-    {
-        if (stack->data == min)
-            break ;
-        position++;
-        stack = stack->next;
-    }
-    return (position);
-}
-
-int     is_small_enough(t_stack *stack, int num, int size)
-{
-    int less_than_num;
-    int more_than_num;
-
-    less_than_num = 0;
-    more_than_num = 0;
-    while (stack)
-    {
-        if (stack->data > num)
-            more_than_num++;
-        else
-            less_than_num++;
-        stack = stack->next;
-    }
-    if (size > 300)
-    {
-        if (less_than_num > (size / 20) +1)
-            return (0);
-        return (1);
-    }
-    if (less_than_num > (size / 10) + 1)
-        return (0);
-    return (1);
-}
-
-int     get_min_of_search_range(t_push_swap *info)
-{
-    int min;
-    int i;
-    t_stack *current;
-
-    current = info->a_head;
-    min = current->data;
-    i = 0;
-    while (current->next != NULL && i < info->search_range - 1)
-    {
-        if (min > current->next->data)
-            min = current->next->data;
-        current = current->next;
-        i++;
-    }
-    current = info->a_end;
-    i = 0;
-    while (current->prev != NULL && i < info->search_range - 1)
-    {
-        if (min > current->data)
-            min = current->data;
-        current = current->prev;
-        i++;
-    }
-    return (min);
 }
