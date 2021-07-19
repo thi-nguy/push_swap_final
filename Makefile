@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/17 18:50:34 by thi-nguy          #+#    #+#              #
-#    Updated: 2021/07/17 18:54:04 by thi-nguy         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 LIBFT = -L./libft/ -lft
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address
@@ -20,9 +8,9 @@ RM = rm -f
 
 NAME = push_swap
 
-SRC = 	 ./srcs/main.c ./srcs/main_utils.c\
+SRC = 	 ./srcs/main.c ./srcs/main_utils.c ./srcs/sort_stack_a_utils.c\
 		 ./srcs/parse_info.c ./srcs/sort_algorithm.c ./srcs/sort_algorithm_utils.c\
-		 ./srcs/print_operation_list.c ./srcs/find_small_values_and_push_into_b.c\
+		 ./srcs/print_operation_list.c ./srcs/sort_stack_a.c\
 		 ./srcs/sort_stack_b.c\
 
 
@@ -43,3 +31,5 @@ fclean : clean
 	-@echo "Removing object files and executive file..."
 	make fclean -C ./libft
 	$(RM) $(NAME)
+
+re: fclean all

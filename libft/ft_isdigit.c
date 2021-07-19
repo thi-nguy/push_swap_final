@@ -6,16 +6,16 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:52:14 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/17 18:52:16 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/18 13:04:23 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    else
-        return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

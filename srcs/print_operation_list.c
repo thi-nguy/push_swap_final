@@ -6,40 +6,49 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:53:17 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/17 18:53:19 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/19 10:25:56 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-const char* get_command_name(t_command command)
+const char	*get_command_name(t_command command)
 {
-   switch (command)
-   {
-      case SA: return "SA";
-      case SB: return "SB";
-      case SS: return "SS";
-      case RA: return "RA";
-      case RB: return "RB";
-      case RR: return "RR";
-      case RRA: return "RRA";
-      case RRB: return "RRB";
-      case RRR: return "RRR";
-      case PA: return "PA";
-      case PB: return "PB";
-      case Undefined: break;
-   }
-   return (NULL);
+	if (command == SA)
+		return ("SA");
+	else if (command == SB)
+		return ("SB");
+	else if (command == SS)
+		return ("SS");
+	else if (command == RA)
+		return ("RA");
+	else if (command == RB)
+		return ("RB");
+	else if (command == RR)
+		return ("RR");
+	else if (command == RRA)
+		return ("RRA");
+	else if (command == RRB)
+		return ("RRB");
+	else if (command == RRR)
+		return ("RRR");
+	else if (command == PA)
+		return ("PA");
+	else if (command == PB)
+		return ("PB");
+	else
+		return (NULL);
 }
 
-void    print_operation_list(t_node *head)
+void	print_operation_list(t_node *head)
 {
-    const char *command;
-    while (head != NULL)
-    {
-        command = ft_strdup(get_command_name(head->data));
-        write(1, command, ft_strlen(command));
-        write(1, "\n", 1);
-        head = head->next;
-    }
+	const char	*command;
+
+	while (head != NULL)
+	{
+		command = ft_strdup(get_command_name(head->data));
+		write(1, command, ft_strlen(command));
+		write(1, "\n", 1);
+		head = head->next;
+	}
 }
