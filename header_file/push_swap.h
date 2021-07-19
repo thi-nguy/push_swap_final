@@ -69,6 +69,9 @@ int			check_int(int ac, char **av);
 int			check_isdigit(int ac, char **av);
 int			check_duplicate(int *nbr, int len);
 int			check_ascending(int *stack_a, int len);
+int    execute_one_command(t_push_swap *info);
+void    execute_two_command(t_push_swap *info);
+
 
 // ! parse_info.c
 void		parse_info(t_push_swap *info, int *input_array, int array_size);
@@ -103,6 +106,8 @@ int			get_min_of_search_range(t_push_swap *info);
 int			is_small_enough(t_stack *stack, int num, int size);
 void		move_up_smaller_number(t_push_swap *info, int position);
 int			find_position(t_stack *stack, int min, int size);
+void    	move_when_size_b_is_small(t_push_swap *info, int position);
+void    	move_when_size_b_is_big(t_push_swap *info, int position);
 
 // ! sort_stack_b.c
 void		sort_stack_b(t_push_swap *info);
