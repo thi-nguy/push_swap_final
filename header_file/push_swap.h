@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:50:54 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/19 13:47:33 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 10:50:19 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,13 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-typedef struct s_node
-{
-	int				data;
-	struct s_node	*next;
-}	t_node;
-
 typedef struct s_push_swap
 {
 	t_stack		*a_head;
 	t_stack		*b_head;
 	t_stack		*a_end;
 	t_stack		*b_end;
-	t_node		*operation_list;
+	t_stack		*operation_list;
 	int			size_a;
 	int			size_b;
 	int			search_range;
@@ -67,7 +61,7 @@ void		push(t_stack **stack1, t_stack **stack2_head, t_stack **stack2_end);
 void		swap(t_stack **stack);
 void		rotate(t_stack **head, t_stack **end);
 void		reverse_rotate(t_stack **head, t_stack **end);
-t_node		*add_command_to_list(t_node **list, t_command command);
+t_stack		*add_command_to_list(t_stack **list, t_command command);
 
 // ! main_util.c
 int			check_duplicate(int *nbr, int len);
@@ -91,7 +85,7 @@ void		parse_info(t_push_swap *info, int *input_array, int array_size);
 
 // ! print_operation_list.c
 const char	*get_command_name(t_command command);
-void		print_operation_list(t_node *head);
+void		print_operation_list(t_stack *head);
 
 // ! sort_algorithm_utils.c
 t_stack		*delete_first_node(t_stack *head);

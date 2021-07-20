@@ -11,6 +11,8 @@ void	move_when_size_b_is_small(t_push_swap *info, int position)
 			execute_command(info, SA);
 		else if (position == 2)
 			execute_command(info, RA);
+		else
+			execute_command(info, RRA);
 	}
 	else if (info->size_b == 2)
 	{
@@ -22,8 +24,9 @@ void	move_when_size_b_is_small(t_push_swap *info, int position)
 			execute_command(info, SA);
 		else if (position == 2)
 			execute_command(info, RA);
+		else
+			execute_command(info, RRA);
 	}
-	execute_command(info, RRA);
 }
 
 void	move_when_size_b_is_big(t_push_swap *info, int position)

@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:52:47 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/18 14:06:18 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 13:13:01 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,26 @@ int	check_error(int ac, char **av, int *nbr)
 	return (1);
 }
 
+static void	free_memory(int **input, t_stack *list)
+{
+	free(*input);
+	*input = NULL;
+	while (list)
+	{
+		if (list->next != NULL)
+		{
+			list = list->next;
+			free(list->prev);
+			list->prev = NULL;
+		}
+		else
+		{
+			free(list);
+			list = NULL;
+		}
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int			status;
@@ -36,11 +56,12 @@ int	main(int ac, char **av)
 	if (!input)
 		return (0);
 	status = check_error(ac, av, input);
-	if (status == 0 || check_ascending(input, ac - 1) == 1)
-		return (0);
-	else if (status == -1)
+	if (status == 0 || check_ascending(input, ac - 1) == 1 || status == -1)
 	{
-		write(1, "Error\n", 6);
+		if (status == -1)
+			write(1, "Error\n", 6);
+		free(input);
+		input = NULL;
 		return (0);
 	}
 	else
@@ -49,6 +70,7 @@ int	main(int ac, char **av)
 		parse_info(&info, input, ac - 1);
 		sort_algorithm(&info);
 		print_operation_list(info.operation_list);
+		free_memory(&input, info.operation_list);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:03:43 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/19 11:14:37 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 13:15:01 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,13 @@ void	reverse_rotate(t_stack **head, t_stack **end)
 	tmp_head->data = num;
 }
 
-t_node	*add_command_to_list(t_node **list, t_command command)
+t_stack	*add_command_to_list(t_stack **list, t_command command)
 {
-	t_node	*new;
-	t_node	*current;
-
-	new = (t_node *)malloc(sizeof(t_node) * 1);
-	if (!new)
-		return (NULL);
-	new->data = command;
-	new->next = NULL;
 	if (*list == NULL)
-		return (new);
-	current = *list;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = new;
+		*list = add_to_empty(*list, command);
+	else
+	{
+		*list = insert_at_beginning(*list, command);
+	}
 	return (*list);
 }
