@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:53:17 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/20 10:49:54 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 13:46:06 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,18 @@ const char	*get_command_name(t_command command)
 void	print_operation_list(t_stack *head)
 {
 	char	*command;
+	t_stack	*tmp;
 
-	while (head != NULL)
+	tmp = head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	while (tmp != NULL)
 	{
-		command = ft_strdup(get_command_name(head->data));
+		command = ft_strdup(get_command_name(tmp->data));
 		write(1, command, ft_strlen(command));
 		write(1, "\n", 1);
 		free(command);
 		command = NULL;
-		head = head->next;
+		tmp = tmp->prev;
 	}
 }
