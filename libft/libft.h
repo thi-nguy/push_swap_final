@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:51:57 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/18 13:07:41 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:35:23 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ int			ft_isdigit(char c);
 void		ft_bzero(void *str, size_t n);
 size_t		ft_strlen(const char *str);
 char		*ft_strdup(const char *src);
+char		**ft_split(char const *s, char c);
+int		    ft_count_words(char const *s, char c);
+size_t	    ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

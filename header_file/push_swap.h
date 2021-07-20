@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:50:54 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/20 10:50:19 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:32:28 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct s_push_swap
 	int			search_range;
 }	t_push_swap;
 
+typedef struct s_array
+{
+	int		size;
+	char	**tab;
+}	t_array;
+
+
 typedef enum e_command
 {
 	SA = 1,
@@ -71,7 +78,8 @@ int			check_ascending(int *stack_a, int len);
 void		get_array(int ac, char **av, int *nbr);
 
 // ! main.c
-int			check_error(int ac, char **av, int *nbr);
+int			check_error(int size, char **argument, int *nbr);
+void		get_argument_array(int ac, char **av, t_array *argument);
 
 // ! move_small_number_up.c
 void		move_when_size_b_is_small(t_push_swap *info, int position);

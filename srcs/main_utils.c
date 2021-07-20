@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:52:58 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/18 14:47:37 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/20 17:58:49 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_isdigit(int ac, char **av)
 	int	i;
 	int	j;	
 
-	i = 1;
+	i = 0;
 	while (i < ac)
 	{
 		j = 0;
@@ -61,7 +61,7 @@ int	check_int(int ac, char **av)
 	int			i;
 	long int	num;
 
-	i = 1;
+	i = 0;
 	while (i < ac)
 	{
 		num = ft_atoi(av[i]);
@@ -92,11 +92,11 @@ void	get_array(int ac, char **av, int *nbr)
 	int			i;
 	long int	num;
 
-	i = 1;
+	i = 0;
 	while (i < ac)
 	{
 		num = ft_atoi(av[i]);
-		nbr[i - 1] = num;
+		nbr[i] = num;
 		i++;
 	}
 }

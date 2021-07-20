@@ -6,7 +6,8 @@ AR = ar rc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ft_atoi.c ft_isdigit.c ft_bzero.c ft_strlen.c ft_strdup.c\
+SRC = ft_atoi.c ft_isdigit.c ft_bzero.c ft_strlen.c\
+		ft_strdup.c ft_split.c ft_strlcpy.c\
 
 OBJ = $(SRC:.c=.o)
 
