@@ -14,6 +14,7 @@ SRC = 	./srcs/main.c ./srcs/main_utils.c\
 		./srcs/sort_stack_a.c ./srcs/sort_stack_a_utils.c\
 		./srcs/sort_stack_b.c ./srcs/sort_stack_b_utils.c\
 		./srcs/print_operation_list.c ./srcs/commands.c\
+		./srcs/free_memory.c\
 
 OBJ = $(SRC:.c=.o)
 

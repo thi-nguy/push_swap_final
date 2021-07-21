@@ -20,11 +20,11 @@
 
 long int	ft_atoi(const char *str);
 int			ft_isdigit(char c);
+int			ft_count_words(char const *s, char c);
 void		ft_bzero(void *str, size_t n);
-size_t		ft_strlen(const char *str);
 char		*ft_strdup(const char *src);
 char		**ft_split(char const *s, char c);
-int		    ft_count_words(char const *s, char c);
-size_t	    ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t		ft_strlen(const char *str);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

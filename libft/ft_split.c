@@ -6,17 +6,17 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 13:47:45 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/20 17:30:41 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:47:59 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_words(char const *s, char c)
+int	ft_count_words(char const *s, char c)
 {
-	int i;
-	int words;
-	int hasword;
+	int	i;
+	int	words;
+	int	hasword;
 
 	i = 0;
 	words = 0;
@@ -49,25 +49,22 @@ static	char	*ft_alloc_word(char const *s, char c)
 	tab = 0;
 	while (s[size] && s[size] != c)
 		size++;
-	if (!(tab = (char *)malloc(sizeof(char) * (size + 1))))
+	tab = (char *)malloc(sizeof(char) * (size + 1));
+	if (!tab)
 		return (NULL);
 	ft_strlcpy(tab, s, size + 1);
 	return (tab);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		count;
 	int		words;
 	char	**tab;
 
 	count = -1;
-	if (!s)
-		return (NULL);
 	words = ft_count_words(s, c);
 	tab = malloc(sizeof(char *) * words);
-	if (!tab)
-		return (NULL);
 	while (++count < words)
 	{
 		while (s[0] == c)
@@ -82,6 +79,5 @@ char			**ft_split(char const *s, char c)
 		}
 		s += ft_strlen(tab[count]);
 	}
-	tab[words] = NULL;
 	return (tab);
 }

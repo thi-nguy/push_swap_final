@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:52:47 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/20 18:03:08 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/21 16:32:26 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,42 +26,10 @@ int	check_error(int ac, char **av, int *nbr)
 	return (1);
 }
 
-static void	free_memory(int **input, t_stack *list, t_array *argument)
-{
-	if (input)
-	{
-		free(*input);
-		*input = NULL;
-	}
-	while (list)
-	{
-		if (list->next != NULL)
-		{
-			list = list->next;
-			free(list->prev);
-			list->prev = NULL;
-		}
-		else
-		{
-			free(list);
-			list = NULL;
-		}
-	}
-	int i = 0;
-	while (i < argument->size)
-	{
-		free(argument->tab[i]);
-		argument->tab[i] = NULL;
-		i++;
-	}
-	free(argument->tab);
-	argument->tab = NULL;
-}
-
 void	get_argument_array(int ac, char **av, t_array *argument)
 {
-	int i;
-	char **array;
+	int		i;
+	char	**array;
 
 	if (ac == 2)
 	{
@@ -80,10 +48,16 @@ void	get_argument_array(int ac, char **av, t_array *argument)
 			argument->tab[i] = ft_strdup(av[i + 1]);
 			i++;
 		}
-		argument->tab[i] = NULL;
 		argument->size = ac - 1;
 		return ;
 	}
+}
+
+void	push_swap(t_push_swap *info, int *input, t_array *argument)
+{
+	parse_info(info, input, argument->size);
+	sort_algorithm(info);
+	print_operation_list(info->operation_list);
 }
 
 int	main(int ac, char **av)
@@ -97,10 +71,9 @@ int	main(int ac, char **av)
 	ft_bzero(&info, sizeof(info));
 	get_argument_array(ac, av, &argument);
 	input = (int *)malloc(sizeof(int) * argument.size);
-	if (!input)
-		return (0);
 	status = check_error(argument.size, argument.tab, input);
-	if (status == 0 || check_ascending(input, argument.size) == 1 || status == -1)
+	if (status == 0 || check_ascending(input, argument.size) == 1
+		|| status == -1 || !input)
 	{
 		if (status == -1)
 			write(1, "Error\n", 6);
@@ -109,9 +82,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		parse_info(&info, input, argument.size);
-		sort_algorithm(&info);
-		print_operation_list(info.operation_list);
+		push_swap(&info, input, &argument);
 		free_memory(&input, info.operation_list, &argument);
 	}
 	return (0);

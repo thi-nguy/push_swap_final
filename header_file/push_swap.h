@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 18:50:54 by thi-nguy          #+#    #+#             */
-/*   Updated: 2021/07/20 16:32:28 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2021/07/21 16:32:16 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_array
 	char	**tab;
 }	t_array;
 
-
 typedef enum e_command
 {
 	SA = 1,
@@ -70,6 +69,10 @@ void		rotate(t_stack **head, t_stack **end);
 void		reverse_rotate(t_stack **head, t_stack **end);
 t_stack		*add_command_to_list(t_stack **list, t_command command);
 
+// ! free_memory.c
+void		free_input_and_argument(int **input, t_array *argument);
+void		free_memory(int **input, t_stack *list, t_array *argument);
+
 // ! main_util.c
 int			check_duplicate(int *nbr, int len);
 int			check_isdigit(int ac, char **av);
@@ -80,6 +83,7 @@ void		get_array(int ac, char **av, int *nbr);
 // ! main.c
 int			check_error(int size, char **argument, int *nbr);
 void		get_argument_array(int ac, char **av, t_array *argument);
+void		push_swap(t_push_swap *info, int *input, t_array *argument);
 
 // ! move_small_number_up.c
 void		move_when_size_b_is_small(t_push_swap *info, int position);
